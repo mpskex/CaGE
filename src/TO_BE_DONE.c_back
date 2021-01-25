@@ -1,0 +1,61 @@
+    //*****************************
+	//粒子系统设置
+	//*****************************	 
+	cout << "initiating particlesys obj..." << endl; 
+	//初始化重力与速度 
+	Vector2D gravity;
+	gravity.x = 0;
+	gravity.y = 0.0005;
+	//初始化粒子系统 
+	//	每次压入个数	粒子寿命	初始x速度	初始y速度
+	particles = new ParticleSys(10, 150, 0, 0);
+	particles->loadTexture("Resource/atom.png", renderer);
+	//	设置边框	设置重力
+	particles->SetKinematic(SCREEN_WIDTH, SCREEN_HEIGHT, 10, gravity);
+	particles->setAlpha(128);
+
+
+    //粒子层渲染 
+	particles->Render_Central(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, renderer);
+
+	/*
+
+//switch case in keyboard event
+			switch(event.type)
+			{
+				case SDL_QUIT: is_quit = true;
+				case SDL_KEYDOWN:
+				{
+					if (event.key.keysym.sym == SDLK_ESCAPE)
+					{
+						is_quit = true;
+					}	
+					
+					if (event.key.keysym.sym == SDLK_w || event.key.keysym.sym == SDLK_UP)
+					{
+						y -= 10;
+					}
+					if (event.key.keysym.sym == SDLK_s || event.key.keysym.sym == SDLK_DOWN)
+					{
+						y += 10;
+					}
+					if (event.key.keysym.sym == SDLK_a || event.key.keysym.sym == SDLK_LEFT)
+					{
+						x -= 10;
+					}
+					if (event.key.keysym.sym == SDLK_d || event.key.keysym.sym == SDLK_RIGHT)
+					{
+						x += 10;
+					}
+					
+
+				} 
+				case SDL_MOUSEBUTTONDOWN: 
+					//renderTexture(atom, renderer, 100, 100);
+				case SDL_MOUSEMOTION:
+				{
+					ix = event.motion.x - iW/2;
+					iy = event.motion.y - iH/2;
+				}
+			}
+	*/

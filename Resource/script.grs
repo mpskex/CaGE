@@ -1,0 +1,4 @@
+int a = 1;
+string b = 'string';
+
+print(a);

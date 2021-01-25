@@ -1,0 +1,8 @@
+button_start    button  Resource/start.png
+button_pause    button  Resource/pause.png
+button_option   button  Resource/option.png
+button_about    button  Resource/about.png
+button_quit     button  Resource/quit.png
+plain_city1    plain  Resource/city1.png
+plain_city2    plain  Resource/city2.png
+plain_city3    plain  Resource/city3.png
