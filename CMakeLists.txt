@@ -14,4 +14,4 @@ add_executable(Game game.cpp)
 target_link_directories(Game
         PRIVATE /usr/local/lib
         )
-target_link_libraries(${PROJECT_NAME} CaGE SDL2 SDL2_image SDL2_ttf)
+target_link_libraries(${PROJECT_NAME} CaGE SDL2 SDL2_image SDL2_ttf jsoncpp)

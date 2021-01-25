@@ -12,6 +12,15 @@
 #	同时还可以具有Pullevent方法
 ***********************/
 
+Button::Button(int x, int y, int w, int h, SDL_RWops *src, SDL_Renderer *ren)
+{
+    this->ren = ren;
+    this->is_pushed = false;
+    this->flag = false;
+    this->loadTexture(src, ren);
+    this->setPos(x, y, w, h);
+}
+
 Button::Button(int x, int y, int w, int h, SDL_RWops *src, SDL_Renderer *ren, Uint32 id)
 {
     this->id = id;

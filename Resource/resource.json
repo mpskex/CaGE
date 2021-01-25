@@ -1,0 +1,59 @@
+{
+  "buttons": {
+    "buttonStart": {
+      "path": "Resource/start.png",
+      "pos": {
+        "x": 10,
+        "y": 10
+      },
+      "size": {
+        "w": 160,
+        "h": 50
+      }
+    },
+    "buttonOption": {
+      "path": "Resource/option.png",
+      "pos": {
+        "x": 10,
+        "y": 110
+      },
+      "size": {
+        "w": 160,
+        "h": 50
+      }
+    },
+    "buttonAbout": {
+      "path": "Resource/about.png",
+      "pos": {
+        "x": 10,
+        "y": 160
+      },
+      "size": {
+        "w": 160,
+        "h": 50
+      }
+    },
+    "buttonQuit": {
+      "path": "Resource/quit.png",
+      "pos": {
+        "x": 10,
+        "y": 210
+      },
+      "size": {
+        "w": 160,
+        "h": 50
+      }
+    }
+  },
+  "plains": {
+    "plainCity1": {
+      "path": "Resource/city1.png"
+    },
+    "plainCity2": {
+      "path": "Resource/city2.png"
+    },
+    "plainCity3": {
+      "path": "Resource/city3.png"
+    }
+  }
+}

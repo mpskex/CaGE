@@ -61,6 +61,7 @@ int CaGE::Loop() {
             break;
         }
     }
+    return 0;
 }
 
 

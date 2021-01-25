@@ -110,7 +110,7 @@ int main(int argc, char *argv[] )
     {
         Menu *menu = new Menu(renderer, SCREEN_WIDTH, SCREEN_HEIGHT, dpi);
         //初始化游戏
-        if(menu->Load("Resource/menu.grconf") != 0)
+        if(menu->Load("Resource/resource.json") != 0)
         {
             return 1;
         }

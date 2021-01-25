@@ -29,7 +29,7 @@ int Game::Load()
 	//****************************
 	buttons.push_back(new Button(this->SCREEN_WIDTH-200,this->SCREEN_HEIGHT-90,160,50,SDL_RWFromFile("Resource/start.png","rb"),renderer, GAME_BUTTON_START));
 	buttons.push_back(new Button(this->SCREEN_WIDTH-200,this->SCREEN_HEIGHT-180,160,50,SDL_RWFromFile("Resource/option.png","rb"),renderer, GAME_BUTTON_OPTION));
-	buttons.push_back(new Button(0,60,160,50,SDL_RWFromFile("Resource/is_quit.png","rb"),renderer, GAME_BUTTON_ESCAPE));
+	buttons.push_back(new Button(0,60,160,50,SDL_RWFromFile("Resource/quit.png","rb"),renderer, GAME_BUTTON_ESCAPE));
 	
 	background = new Background(BG_STITCH);
     background->loadTexture(SDL_RWFromFile("Resource/background.bmp", "rb"), renderer);

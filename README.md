@@ -1,4 +1,9 @@
 # CaGE
+## Required Libs
+1. SDL2
+2. SDL2_image
+3. SDL2_ttf
+4. jsoncpp
 
 ### Learning from Building
 

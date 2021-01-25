@@ -14,5 +14,6 @@
 
 //std::ostream可以选择多种输出流，包括cout
 void LogError(std::ostream &os, const std::string &msg);
+void IMGLogError(std::ostream &os, const std::string &msg);
 
 #endif

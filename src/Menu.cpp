@@ -34,56 +34,7 @@ int Menu::Load(std::string filename)
 	//纹理对象初始化
 	//****************************
 
-	this->res_manager = new ResourceManager(filename);
-
-	this->button_list->Push(
-		new Button(this->SCREEN_WIDTH - MENU_MARGIN - MENU_BUTTON_W,
-			this->SCREEN_HEIGHT - 5*MENU_BUTTON_H - MENU_MARGIN,
-			MENU_BUTTON_W, MENU_BUTTON_H,
-			this->res_manager->GetResource("button", "button_start"),
-			this->renderer, 
-			MENU_NEWGAME), "button_start");
-	this->button_list->Push(
-		new Button(this->SCREEN_WIDTH - MENU_MARGIN - MENU_BUTTON_W,
-			this->SCREEN_HEIGHT - 3*MENU_BUTTON_H - MENU_MARGIN,
-			MENU_BUTTON_W, MENU_BUTTON_H,
-			this->res_manager->GetResource("button", "button_option"),
-			this->renderer, 
-			MENU_OPTION), "button_option");
-	this->button_list->Push(
-		new Button(this->SCREEN_WIDTH - MENU_MARGIN - MENU_BUTTON_W,
-			this->SCREEN_HEIGHT - 2*MENU_BUTTON_H - MENU_MARGIN,
-			MENU_BUTTON_W, MENU_BUTTON_H,
-			this->res_manager->GetResource("button", "button_about"),
-			this->renderer, 
-			MENU_ABOUT), "button_about");
-	this->button_list->Push(
-		new Button(this->SCREEN_WIDTH - MENU_MARGIN - MENU_BUTTON_W,
-			this->SCREEN_HEIGHT - 1*MENU_BUTTON_H - MENU_MARGIN,
-			MENU_BUTTON_W, MENU_BUTTON_H,
-			this->res_manager->GetResource("button", "button_quit"),
-			this->renderer, 
-			MENU_QUIT), "button_quit");
-
-	this->plain_list->Push(
-		new RenderObject(
-			this->res_manager->GetResource("plain", "plain_city1"),
-			this->renderer,
-			"city1")
-	);
-	this->plain_list->Push(
-		new RenderObject(
-			this->res_manager->GetResource("plain", "plain_city2"),
-			this->renderer,
-			"city2")
-	);
-	this->plain_list->Push(
-		new RenderObject(
-			this->res_manager->GetResource("plain", "plain_city3"),
-			this->renderer,
-			"city3")
-	);
-	
+	this->res_manager = new ResourceManager(filename, this->renderer);
 	this->background = new Background();
 	this->background->loadTexture(SDL_RWFromFile("Resource/background.bmp", "rb"), this->renderer);
 	//重设渲染器 
@@ -149,7 +100,7 @@ Uint32 Menu::Loop()
 		//计算渲染顶点 
 		//背景层渲染 
 		this->background->render(SCREEN_WIDTH, SCREEN_HEIGHT, this->renderer);
-		
+		/*
 		int level = 2;
 		for(this->plain_list->CursorReset();!this->plain_list->CursorEnd();this->plain_list->CursorNext())
 		{
@@ -166,12 +117,16 @@ Uint32 Menu::Loop()
             );
 			level--;
 		}
-
 		for(this->button_list->CursorReset();!this->button_list->CursorEnd();this->button_list->CursorNext())
 		{
             ((Button *) this->button_list->GetCursor())->render();
 		}
+         */
 		//对象层渲染
+		for(auto a=this->res_manager->res_dict.begin();a!=this->res_manager->res_dict.end();a++){
+            auto obj = a->second.content;
+		    obj->render();
+		}
 		
 		//渲染器渲染 
 		SDL_RenderPresent(this->renderer);

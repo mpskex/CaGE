@@ -17,11 +17,17 @@ Texture::Texture(SDL_RWops *src, SDL_Renderer *ren)
 
 void Texture::load(SDL_RWops *src, SDL_Renderer *ren)
 {
+    if(src == nullptr){
+        LogError(std::cout, "Texture:Null SDL_RWops");
+        throw std::exception();
+    }
+
 	SDL_Surface *image;
-	image = IMG_Load_RW(src, 1);
-	if(image == NULL)
+	image = IMG_Load_RW(src, 0);
+	if(image == nullptr)
 	{
-		LogError(std::cout, "Texture:IMG_Load_RW");
+		IMGLogError(std::cout, "Texture:IMG_Load_RW");
+		throw std::exception();
 	}
 	else
 	{
@@ -35,7 +41,6 @@ void Texture::load(SDL_RWops *src, SDL_Renderer *ren)
 		{
 			SDL_QueryTexture(this->texture, NULL, NULL, &dst.w, &dst.h);
 		}
-		SDL_FreeSurface(image);
 	}
 }
 

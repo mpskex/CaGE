@@ -24,6 +24,7 @@
 class Button: public RenderObject
 {
 	public:
+        Button(int x, int y, int w, int h, SDL_RWops *src, SDL_Renderer *ren);
 		Button(int x, int y, int w, int h, SDL_RWops *src, SDL_Renderer *ren, Uint32 id);
 		~Button();
 		void setPos(int x, int y, int w, int h);

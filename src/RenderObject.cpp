@@ -1,8 +1,15 @@
 #include <CaGE/RenderObject.h>
+#include <iostream>
 
 RenderObject::RenderObject()
 {
     this->tex = new Texture();
+}
+
+RenderObject::RenderObject(SDL_RWops *src, SDL_Renderer *ren)
+{
+    this->tex = new Texture();
+    this->tex->load(src, ren);
 }
 
 RenderObject::RenderObject(SDL_RWops *src, SDL_Renderer *ren, std::string name)

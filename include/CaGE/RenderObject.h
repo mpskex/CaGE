@@ -21,6 +21,7 @@ class RenderObject
 {
     public:
         RenderObject();
+        RenderObject(SDL_RWops *src, SDL_Renderer *ren);
         RenderObject(SDL_RWops *src, SDL_Renderer *ren, std::string name);
         ~RenderObject();
         void loadTexture(SDL_RWops *src, SDL_Renderer *ren);
@@ -29,7 +30,7 @@ class RenderObject
         void setLayer(int layer);
         void setResourceName(const std::string &s);
 
-        void render();
+        virtual void render();
         void renderClip(SDL_Rect dest, SDL_Rect clip, SDL_Renderer *ren);
 		void renderClip(int dstX, int dstY, int dstW, int dstH, int srcX, int srcY, int srcW, int srcH, SDL_Renderer *ren);
 
