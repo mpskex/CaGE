@@ -4,7 +4,7 @@
 #include "Game.h"
 #include "Intro.h"
 #include "Menu.h"
-#include "CaGE/Resource.h"
+#include "CaGE/ResourceManager.h"
 #include <iostream>
 using namespace std;
 //#define DEBUG
@@ -116,7 +116,6 @@ int main(int argc, char *argv[] )
         }
         Uint32 _return = menu->Loop();
         delete menu;
-        cout << _return << endl;
         //执行游戏loop
         switch(_return)
         {
@@ -133,7 +132,7 @@ int main(int argc, char *argv[] )
                 delete game;
                 break;
             }
-            case MENU_QUIT:
+            case QUIT_EVENT:
             {
                 Quit();
                 return 0;

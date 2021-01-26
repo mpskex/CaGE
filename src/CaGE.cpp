@@ -6,7 +6,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <CaGE/CaGE.h>
-#include <CaGe/Log.h>
+#include "CaGe/Log.h"
 
 
 CaGE::CaGE(){

@@ -149,7 +149,7 @@ int main(int argc, char **argv)
                 //  get the name of file
                 //  this will be finally define in the binary file
                 //  when using a fileop, you can just call it name 
-                //  to use this resource
+                //  to use this json
                 char imagefile[NAME_LEN];
                 char imagename[NAME_LEN];
                 strcpy(imagefile, argv[i+1]);
@@ -186,7 +186,7 @@ int main(int argc, char **argv)
                 //  get the name of file
                 //  this will be finally define in the binary file
                 //  when using a fileop, you can just call it name 
-                //  to use this resource
+                //  to use this json
                 char scriptfile[NAME_LEN];
                 char scriptname[NAME_LEN];
                 strcpy(scriptfile, argv[i+1]);

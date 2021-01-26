@@ -16,9 +16,9 @@ typedef unsigned char BYTE;
 
 /*  
     This part is to define how the file storage in an
-    rpk file. All resource file have a head, which describe
+    rpk file. All json file have a head, which describe
     its name, type and size. Then following is the real
-    content of the resource file.
+    content of the json file.
 */
 typedef struct BinContent
 {

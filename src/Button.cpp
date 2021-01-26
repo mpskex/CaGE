@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
 #include <CaGE/Button.h>
-#include <cstdio>
+
 /*****************************
 #	文件名：	Button.h 
 #	日期：		2017-1-16 
@@ -23,7 +23,7 @@ Button::Button(int x, int y, int w, int h, SDL_RWops *src, SDL_Renderer *ren)
 
 Button::Button(int x, int y, int w, int h, SDL_RWops *src, SDL_Renderer *ren, Uint32 id)
 {
-    this->id = id;
+    this->event_id = id;
     this->ren = ren;
     this->is_pushed = false;
     this->flag = false;
@@ -45,10 +45,10 @@ void Button::setPos(int x, int y, int w, int h)
     this->dst.h = h;
 }
 
-void Button::loadTexture(SDL_RWops *src, SDL_Renderer * ren)
+void Button::loadTexture(SDL_RWops *src, SDL_Renderer * r)
 {
     this->tex = new Texture();
-    this->tex->load(src, ren);
+    this->tex->load(src, r);
     this->tex_w = this->tex->getWidth();
     this->tex_h = this->tex->getHeight();
     this->clip[0].x = 0;
@@ -85,7 +85,7 @@ void Button::render()
     }
 }
 
-void Button::mouseMotionEvent(int Mouse_x, int Mouse_y)
+void Button::mouseMotionTrigger(int Mouse_x, int Mouse_y)
 {
     if(Mouse_x>=this->dst.x&&Mouse_x<=this->dst.x+this->tex_w/2&&Mouse_y>=this->dst.y&&Mouse_y<=this->dst.y+this->tex_h/2)
     {
@@ -98,23 +98,26 @@ void Button::mouseMotionEvent(int Mouse_x, int Mouse_y)
 }
 
 //用于处理鼠标消息（1代表鼠标摁下，2代表鼠标松开）
-void Button::mouseButtonEvent(int type)
+Uint32 Button::mouseButtonTrigger(int type)
 {
+    Uint32 ret = EMPTY_EVENT;
     switch(type)
     {
-        case MOUSE_BUTTON_DOWN:
+        case SDL_MOUSEBUTTONDOWN:
         {
 			if(this->flag==1)
             {
-				this->is_pushed = true;
+			    this->is_pushed = true;
 			}
         }break;
-        case MOUSE_BUTTON_UP:
+        case SDL_MOUSEBUTTONUP:
         {
-            if(this->is_pushed==1)
+            if(this->is_pushed)
 			{
 				this->is_pushed = false;
+				ret = this->event_id;
 			}
         }break;
     }
+    return ret;
 }

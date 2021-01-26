@@ -61,55 +61,6 @@ int Game::Loop()
 	{
 		//清理渲染器 
 		SDL_RenderClear(renderer);
-
-		while (SDL_PollEvent(&event))
-		{	
-			switch(event.type)
-			{
-				case SDL_QUIT: quit = true;
-				case SDL_KEYDOWN:
-				{
-					if (event.key.keysym.sym == SDLK_ESCAPE)
-					{
-						this->quit = true;
-						return GAME_BUTTON_ESCAPE;
-					}
-				} 
-				case SDL_MOUSEBUTTONUP:
-				case SDL_MOUSEBUTTONDOWN: 
-				{
-					//判断事件要使用合并的处理，否则将无法分开
-					if(event.type == SDL_MOUSEBUTTONDOWN)
-					{
-						//1代表摁下，后期会统一使用宏描述
-						for(button_iter=buttons.begin();button_iter!=buttons.end();button_iter++)
-						{
-                            (*this->button_iter)->mouseButtonEvent(MOUSE_BUTTON_DOWN);
-						}
-					}	
-					else
-					{
-						//2代表鼠标按键释放
-						for(button_iter=buttons.begin();button_iter!=buttons.end();button_iter++)
-						{
-							if((*this->button_iter)->is_pushed)
-							{
-								return (*this->button_iter)->id;
-							}
-                            (*this->button_iter)->mouseButtonEvent(MOUSE_BUTTON_UP);
-						}
-					}
-				}
-				case SDL_MOUSEMOTION:
-				{
-					for(button_iter=buttons.begin();button_iter!=buttons.end();button_iter++)
-					{
-                        (*this->button_iter)->mouseMotionEvent((int)(event.motion.x * this->dpi),
-                                                               (int)(event.motion.y * this->dpi));
-					}
-				}
-			}
-		}
 		
 		//计算渲染顶点 
 		//背景层渲染 

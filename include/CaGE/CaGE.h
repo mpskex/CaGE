@@ -10,7 +10,7 @@
 #include "CaGE/Particle.h"
 #include "CaGE/Button.h"
 #include "CaGE/Background.h"
-#include "CaGE/Resource.h"
+#include "CaGE/ResourceManager.h"
 #include "CaGE/Playable.h"
 #include "CaGE/RenderObject.h"
 

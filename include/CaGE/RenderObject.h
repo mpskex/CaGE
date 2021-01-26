@@ -24,7 +24,7 @@ class RenderObject
         RenderObject(SDL_RWops *src, SDL_Renderer *ren);
         RenderObject(SDL_RWops *src, SDL_Renderer *ren, std::string name);
         ~RenderObject();
-        void loadTexture(SDL_RWops *src, SDL_Renderer *ren);
+        virtual void loadTexture(SDL_RWops *src, SDL_Renderer *ren);
         //  void render() need to be implemented by yourself
         void setName(const std::string &s);
         void setLayer(int layer);

@@ -11,10 +11,11 @@
 #include "CaGE/Button.h"
 #include "CaGE/Background.h"
 #include "CaGE/RenderObject.h"
-#include "CaGE/Resource.h"
+#include "CaGE/ResourceManager.h"
 
 #include "CaGE/Log.h"
 #include "CaGE/Vector2D.h"
+#include "CaGE/EventManager.h"
 
 /*****************************
 #	文件名：	Menu.h
@@ -43,13 +44,13 @@ class Menu
 {
 	private:
 		SDL_Renderer *renderer;
-		SDL_Event event;
+		SDL_Event event{};
 		vector<SDL_RWops*> resources;
-		Background *background;
+		Background *background{};
 
-		RenderableList *button_list;
-		RenderableList *plain_list;
 		ResourceManager *res_manager;
+
+		EventManager *event_manager;
 
 		int Quit();
 	public:
@@ -60,7 +61,7 @@ class Menu
 		Menu(SDL_Renderer *renderer, int w, int h, float dpi);
 		~Menu();
         int Init();
-        int Load(std::string filename);
+        int Load(const std::string& filename);
 		Uint32 Loop();
 };
 
